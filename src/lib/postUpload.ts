@@ -1,14 +1,10 @@
 import { apiUrl } from './config'
-import { loadUserToken } from './loadLocalStorage'
-import { message } from './message'
-import type { FileToUpload } from '$lib/interface'
 
 export const postUpload = async (
 	apiName: string,
-	data: FileToUpload,
+	data,
 ) => {
 	const url = apiUrl + apiName
-	const token = loadUserToken()
 
 	const formData: any = new FormData()
 	formData.append('file', data.file)
@@ -16,12 +12,6 @@ export const postUpload = async (
 	try {
 		consoleRequest(url, data)
 		let res = await fetch(url, {
-			headers: {
-				Authorization: token,
-				// 'Content-Type': 'application/json; charset=utf-8',
-				// 'Content-Type': 'multipart/form-data',
-				// 'Content-Type': 'application/x-www-form-urlencoded',
-			},
 			method: 'POST',
 			body: formData,
 		})
@@ -31,7 +21,7 @@ export const postUpload = async (
 	} catch (error) {
 		console.log('can not not connect to server', error)
 		return {
-			message: message.fail,
+			message: 'fail',
 			error: 'can not not connect to server',
 		}
 	}
