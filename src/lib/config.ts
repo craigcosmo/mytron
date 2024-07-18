@@ -9,16 +9,16 @@ let authTokenName = 'token'
 let apiUrl: string =
 	env == 'production'
 		? 'https://contron.vn/api/'
-		: 'http://localhost:2233/api/'
+		: 'http://localhost:9955/api/'
 
 let siteUrl: string =
 	env == 'production'
 		? 'https://contron.vn/'
-		: 'http://localhost:2233/'
+		: 'http://localhost:9955/'
 let cmsUrl: string =
 	env == 'production'
 		? 'https://contron.vn/cms/'
-		: 'http://localhost:2233/cms/'
+		: 'http://localhost:9955/cms/'
 const localStorageName = {
 	previouspage: 'previouspage',
 	cart: 'cart',

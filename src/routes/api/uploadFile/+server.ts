@@ -4,8 +4,6 @@ import fs from 'fs'
 import path from 'path'
 import { randomNumber } from '$lib/randomNumber'
 
-
-
 let item: any
 
 const processFile = async (file, id) => {
@@ -17,8 +15,8 @@ const processFile = async (file, id) => {
 			const local = env == 'production' ? '' : '_local'
 			const nameext = name + '_trontron_' + local + ext
 			const webpname = name + '_trontron_' + local + '.webp'
-			const pathname = '/tmp/' + nameext
-			const convertpath = '/tmp/' + webpname
+			const pathname = '' + nameext
+			const convertpath = '' + webpname
 			fs.writeFileSync(
 				pathname,
 				new Uint8Array(await file.arrayBuffer()),
